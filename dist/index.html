@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f4efe6">
+<title>Gemini Watermark Remover</title>
+<meta name="description" content="Automatically removes watermarks from Gemini AI generated images and videos with preview harness and export tools.">
+<meta property="og:title" content="Gemini Watermark Remover">
+<meta property="og:description" content="Automatically removes watermarks from Gemini AI generated images and videos with preview harness and export tools.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://geminiwatermarkremover.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23e4572e'/%3E%3Cstop offset='1' stop-color='%23e4572e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='24' height='24' rx='7' fill='%231b1a17'/%3E%3Cpath d='M12 4l1.6 5.4L19 11l-5.4 1.6L12 18l-1.6-5.4L5 11l5.4-1.6z' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..700&family=Inter:wght@400..700&display=swap">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b4b8a"/><stop offset=".45" stop-color="#e0698a"/><stop offset="1" stop-color="#ffb76b"/></linearGradient>
+            <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb06a"/><stop offset="1" stop-color="#c9577a"/></linearGradient>
+          <symbol id="demo-scene" viewBox="0 0 400 300">
+          <rect width="400" height="300" fill="url(#sky)"/>
+          <circle cx="250" cy="150" r="46" fill="#ffe3a8"/>
+          <circle cx="250" cy="150" r="70" fill="#ffe3a8" opacity=".18"/>
+          <path d="M0 190l70-62 54 44 64-76 78 86 52-40 82 72v86H0z" fill="#6a4a86"/>
+          <path d="M0 225l86-56 64 46 70-52 90 70 90-48v115H0z" fill="#3d2f63"/>
+          <path d="M0 252h400v48H0z" fill="url(#lake)"/>
+          <path d="M214 258h72M226 268h48M236 278h28" stroke="#ffe3a8" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+          <path d="M0 262l60-34 70 30 60-22 70 26 70-30 70 22v46H0z" fill="#241b45"/>
+        </symbol></defs></svg>
+<header class="bar">
+  <a class="brand" href="./index.html"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 5.7L19.5 10.5l-5.7 1.8L12 18l-1.8-5.7L4.5 10.5l5.7-1.8z"/><path d="M4 20L20 4"/></svg></i><span>Sparkle<b>Off</b></span></a>
+  <span class="pill"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2.5"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>Private &middot; runs on your device</span>
+</header>
+
+<main class="canvas">
+  <section class="start">
+    <div class="lead">
+      <div class="intro">
+        <p class="eyebrow">For Gemini &amp; Veo creations</p>
+        <h1>Take the sparkle off. <em>Keep the picture.</em></h1>
+        <p class="lede">Drop in a photo or video and the watermark is gone in seconds. Full quality, nothing uploaded.</p>
+      </div>
+
+      <div id="uploadArea" class="drop" tabindex="0" role="button" aria-label="Choose photos or videos">
+        <div class="art" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><rect x="6" y="9" width="36" height="30" rx="6"/><path d="M6 31l9-9 8 8 6-6 13 12"/><circle cx="32" cy="18" r="3"/></svg>
+        </div>
+        <div class="drop-copy">
+          <p class="drop-title">Drop photos or videos here</p>
+          <p class="drop-sub">or paste from your clipboard</p>
+        </div>
+        <span class="btn go">Choose files</span>
+        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp,video/mp4,video/webm,video/quicktime" multiple hidden />
+      </div>
+
+      <ul class="trust" aria-label="Why people use it">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>Stays on your device</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="3"/><path d="M10 9.5v5l4-2.5z"/></svg>Photos &amp; video</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>Full resolution</li>
+      </ul>
+    </div>
+
+    <figure class="demo" aria-label="Animated example of a watermark being removed">
+      <div class="demo-stage">
+        <svg class="scene" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#demo-scene"/></svg>
+        <div class="after">
+          <svg class="scene" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <use href="#demo-scene"/>
+          </svg>
+        </div>
+        <svg class="mark mark-before" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c.6 5.5 4.5 9.4 10 10-5.5.6-9.4 4.5-10 10-.6-5.5-4.5-9.4-10-10 5.5-.6 9.4-4.5 10-10z"/></svg>
+        <span class="demo-line" aria-hidden="true"><i></i></span>
+        <em class="tag tag-l">Cleaned</em><em class="tag tag-r">Original</em>
+      </div>
+      <figcaption>Sample illustration</figcaption>
+    </figure>
+  </section>
+
+  <p id="statusMessage" class="note" aria-live="polite"></p>
+
+  <!-- Photo result -->
+  <section id="singlePreview" class="result" style="display: none;">
+    <div class="frame"><div id="comparisonContainer" class="compare">
+      <img id="originalImage" draggable="false" alt="Original image" />
+      <div id="processedOverlay" style="display: none;"><img id="processedImage" draggable="false" alt="Cleaned image" /></div>
+      <div id="sliderHandle" style="left: 50%; display: none;"><span><svg viewBox="0 0 24 24"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+      <em class="tag tag-l">Cleaned</em><em class="tag tag-r">Original</em>
+    </div></div>
+    <p class="drag-hint" aria-hidden="true">Drag the handle to compare</p>
+    <div class="chips"><div id="originalInfo" class="facts"></div><div id="processedInfo" class="facts ok" style="display: none;"></div></div>
+    <div class="acts-row">
+      <button id="imgResetBtn" class="textbtn">New file</button>
+      <button id="copyBtn" class="btn" style="display: none;"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m-1 10H8m4-3H8m1.5 6H8"/></svg><span>Copy</span></button>
+      <button id="imgDownloadBtn" class="btn go" style="display: none;"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span>Download</span></button>
+    </div>
+  </section>
+
+  <!-- Photo batch -->
+  <section id="multiPreview" class="result" style="display: none;">
+    <div class="head"><div><h2>Your photos</h2><p id="batchProgressText">Progress: 0/0</p></div><button id="batchResetBtn" class="textbtn">Start over</button></div>
+    <div id="imageList" class="batch-list"></div>
+  </section>
+
+  <!-- Video result -->
+  <div class="loaded">
+    <div id="comparePlayer" class="media">
+      <video id="originalVideo" playsinline preload="metadata"></video>
+      <video id="processedVideo" playsinline preload="metadata" muted></video>
+      <div id="originalEmpty" class="hint">Choose or drop a video to start</div>
+      <em class="tag tag-r">Before</em><em id="afterBadge" class="tag tag-l" hidden>After</em>
+      <div class="wipe" aria-hidden="true"><i><svg viewBox="0 0 24 24"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></i></div>
+      <div class="busy" aria-hidden="true">
+        <div class="busy-card">
+          <canvas id="dust" width="340" height="260"></canvas>
+          <div class="num"><strong id="busyPct">0</strong><sup>%</sup></div>
+          <p class="busy-title">Blowing the sparkle away</p>
+          <p id="busyText" class="busy-sub">Getting ready…</p>
+        </div>
+      </div>
+      <div class="ctl">
+        <button id="playPauseBtn" class="play" type="button" data-playing="false" aria-label="Play" disabled></button>
+        <input id="scrubber" type="range" min="0" max="1000" value="0" aria-label="Seek" disabled>
+        <span id="timeLabel" class="time">0:00</span>
+      </div>
+    </div>
+    <div class="progress" aria-label="Processing progress"><span id="progressBar"></span></div>
+    <div id="batchQueue" class="queue" aria-label="Batch queue" hidden></div>
+
+    <div class="acts-row">
+      <button class="textbtn" type="button" data-proxy="resetBtn">New video</button>
+      <button id="cancelBtn" class="btn ghost" type="button" disabled>Stop</button>
+      <a id="downloadBtn" class="btn" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span>Download</span></a>
+      <button id="processBtn" class="btn go" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 5.7L19.5 10.5l-5.7 1.8L12 18l-1.8-5.7L4.5 10.5l5.7-1.8z"/></svg><span>Remove watermark</span></button>
+    </div>
+    <p class="line"><span id="progressText">Waiting for video</span><span id="processedEmpty" class="hint">Remove the watermark, then drag the line to compare.</span></p>
+    <div id="status" class="status" data-tone="info"></div>
+
+    <!-- Engine controls: the app reads these, people never need to. -->
+    <div class="engine" hidden>
+      <div id="autoPresetSummary"></div>
+      <button id="detectBtn" type="button">Detect</button>
+      <button id="resetBtn" type="button">Reset</button>
+      <div id="metadata"></div><div id="detection"></div>
+      <span id="alphaGainValue">1.00</span>
+      <input id="alphaGain" type="range" min="0.25" max="1.35" step="0.05">
+      <input id="adaptiveAlpha" type="checkbox">
+      <input id="highQualityCleanup" type="checkbox">
+      <select id="denoiseBackend">
+        <option value="none">Off</option>
+        <option value="canvas-edge-denoise">Canvas Edge Denoise</option>
+        <option value="canvas-edge-band-denoise">Canvas Edge Band Denoise</option>
+        <option value="canvas-edge-core-denoise">Canvas Edge Core Denoise</option>
+        <option value="canvas-footprint-polish">Canvas Footprint Polish</option>
+        <option value="canvas-temporal-delta-stabilize">Canvas Temporal Delta Stabilize</option>
+        <option value="canvas-temporal-match-delta-stabilize">Canvas Temporal Match Delta Stabilize</option>
+        <option value="canvas-temporal-stabilize">Canvas Temporal Stabilize</option>
+        <option value="canvas-texture-repair">Canvas Texture Repair</option>
+        <option value="allenk-fdncnn-browser-spike">AI FDnCNN ONNX</option>
+      </select>
+      <button id="relocatedReviewPresetBtn" type="button">Relocated Review Preset</button>
+      <span id="edgeDenoiseStrengthValue">0.25</span>
+      <input id="edgeDenoiseStrength" type="range" min="0" max="1" step="0.05">
+      <span id="residualCleanupValue">1.50</span>
+      <input id="residualCleanup" type="range" min="0" max="1.80" step="0.05">
+      <input id="sampleCount" type="number" min="4" max="24" step="1">
+      <input id="videoBitrateMbps" type="number" min="1" max="80" step="0.5">
+      <input id="allowLowConfidence" type="checkbox">
+    </div>
+  </div>
+</main>
+
+<footer class="foot">Free &amp; open source &middot; your files are processed locally and never uploaded</footer>
+
+<div id="loadingOverlay" role="status"><div class="spin"></div><p>Loading resources...</p></div>
+
+<script src="app.js"></script>
+<script src="video-app.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>
